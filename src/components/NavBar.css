@@ -1,0 +1,15 @@
+.navbar-main {
+    border-top: solid #026b9c 5px;
+}
+
+.navbar-section-title {
+
+}
+
+.navbar-section {
+
+}
+
+.navbar-section:hover .navbar-section-title {
+    color: #026b9c;
+}
