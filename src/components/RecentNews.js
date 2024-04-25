@@ -4,7 +4,11 @@ function RecentNewsSection(props) {
     const styles = {
         main: {
             padding: '20px 30px 20px 30px',
-            width: '10%'
+            width: '10%',
+            display: 'flex',
+            flexDirection: props.direction === 'v' ? 'column' : 'row',
+            justifyContent: 'start',
+            //alignItems: 'center',
         },
         time: {
             color: '#79c4df',
@@ -45,25 +49,30 @@ function RecentNews() {
             padding: '0 70px 0 70px'
         }
     }
-    return <div style={styles.main}>
+    return <div className={'recent-news-main'}>
         <RecentNewsSection
             text={'Lorem ipsum dolor sit amet, consectetur'}
+            direction={'v'}
         />
         <VL />
         <RecentNewsSection
             text={'Fusce at nulla tortor'}
+            direction={'v'}
         />
         <VL />
         <RecentNewsSection
             text={'Praesent ac feugiat metus'}
+            direction={'v'}
         />
         <VL />
         <RecentNewsSection
             text={'Proin accumsan vitae arcu eget euismod'}
+            direction={'v'}
         />
         <VL />
         <RecentNewsSection
             text={'Phasellus nunc tellus, facilisis a gravida id'}
+            direction={'v'}
         />
     </div>
 }

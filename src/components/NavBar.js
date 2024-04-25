@@ -3,6 +3,7 @@ import HomeIcon from './icons/home-icon.png';
 import SearchIcon from './icons/search-icon.png';
 import DownArrow from './icons/down-arrow-icon.png';
 import UpArrow from './icons/up-arrow-icon.png';
+import Recent from './icons/recent-icon.png';
 import {useState} from "react";
 
 function sleep (time) {
@@ -59,6 +60,7 @@ function NavBarSection(props) {
 function NavBarDropDown(props) {
     const styles = {
         main : {
+            position: 'absolute',
             backgroundColor : '#f5f6f8',
             display: props.state ? 'flex' : 'none',
             padding: '10px',
@@ -91,6 +93,9 @@ function NavBar() {
     return <div className={'navbar-main'} style={styles.main}>
         <div style={styles.sections} className={'navbar-sections'}>
             <img src={HomeIcon} width={'30px'} height={'30px'}/>
+            <div className={'navbar-show-recent-news'}>
+                <img src={Recent} width={'30px'} height={'30px'}/>
+            </div>
             <NavBarSection
                 title={"LOREM"}
                 dropDownState={dropDownState}

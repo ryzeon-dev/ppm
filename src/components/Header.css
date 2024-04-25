@@ -5,7 +5,7 @@
 }
 
 .logo {
-
+    text-align: center;
 }
 
 .login {
@@ -18,8 +18,9 @@
 .optional {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: start;
     align-items: center;
+    padding-left: 20px;
 }
 
 .login-logo {
@@ -29,7 +30,6 @@
 
 .vl {
     border-left: solid black 2px;
-
     height: 40px;
 }
 
@@ -38,8 +38,14 @@
         display: none;
         position: absolute;
     }
+
+    .logo {
+        text-align: left;
+        margin-left: 20px;
+    }
+
     .header-main {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 80% 20%;
     }
 }

@@ -13,3 +13,15 @@
 .navbar-section:hover .navbar-section-title {
     color: #026b9c;
 }
+
+.navbar-show-recent-news {
+    display: none;
+    position: absolute;
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar-show-recent-news {
+        position: relative;
+        display: block;
+    }
+}

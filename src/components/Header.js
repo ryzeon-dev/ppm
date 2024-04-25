@@ -11,13 +11,16 @@ function Header() {
         },
         hl : {
             borderBottom: 'solid black 2px'
+        },
+        optionalText : {
+            marginLeft: '10px'
         }
     };
 
     return <div className={'header-main'}>
         <div className={'optional'}>
             <img src={NewspaperIcon} width={'50px'} height={'50px'}/>
-            <span>Lorem ipsum <br/> dolor sit</span>
+            <span style={styles.optionalText}>Lorem ipsum <br/> dolor sit</span>
         </div>
         <div className={'logo'}>
             <h1>Lorem Ipsum</h1>
