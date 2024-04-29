@@ -5,6 +5,7 @@ import DownArrow from './icons/down-arrow-icon.png';
 import UpArrow from './icons/up-arrow-icon.png';
 import Recent from './icons/recent-icon.png';
 import {useState} from "react";
+import RecentNews from "./RecentNews";
 
 function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
@@ -12,16 +13,10 @@ function sleep (time) {
 
 function NavBarSection(props) {
     const [selfDropDownState, setSelfDropDownState] = props.selfDropDownState;
-    const [bgColor, setBgColor] = useState('#FFFFFF');
 
     const styles = {
         main : {
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            height: '100%',
-            padding: '15px 3px 15px 3px',
+
             backgroundColor: props.dropDownState === props.title ? '#f5f6f8' : '#FFFFFF'
         },
         image : {
@@ -36,7 +31,6 @@ function NavBarSection(props) {
             return
         }
 
-        setBgColor('#f5f6f8');
         if (props.dropDownState !== '') {
             props.setDropDownState('');
             sleep(500);
@@ -47,7 +41,7 @@ function NavBarSection(props) {
         setSelfDropDownState(true);
     }
 
-    return <div className={'navbar-section'} style={styles.main} onClick={onClick}>
+    return <div style={styles.main} className={'navbar-section'}  onClick={onClick}>
         <span className={'navbar-section-title'}>{props.title}</span>
         <img
             src={selfDropDownState && props.dropDownState === props.title ? UpArrow : DownArrow}
@@ -64,6 +58,7 @@ function NavBarDropDown(props) {
             backgroundColor : '#f5f6f8',
             display: props.state ? 'flex' : 'none',
             padding: '10px',
+            //marginTop: '15px',
             fontSize: '18px'
         }
     }
@@ -76,6 +71,7 @@ function NavBarDropDown(props) {
 function NavBar() {
     const [dropDownState, setDropDownState] = useState('');
     const [dropDownContent, setDropDownContent] = useState(<div></div>);
+    const [verticalRecentNews, setVerticalRecentNews] = useState(false);
 
     const styles = {
         sections : {
@@ -85,15 +81,23 @@ function NavBar() {
             alignItems: 'center',
             //padding: '7px'
         },
-        main : {
+        homeIcon : {
+            //borderTop: 'solid #026b9c 5px'
+        },
+        recentIcon : {
 
         }
     };
 
-    return <div className={'navbar-main'} style={styles.main}>
-        <div style={styles.sections} className={'navbar-sections'}>
-            <img src={HomeIcon} width={'30px'} height={'30px'}/>
-            <div className={'navbar-show-recent-news'}>
+    function toggleVerticalRecentNews() {
+        setVerticalRecentNews(!verticalRecentNews);
+    }
+
+    return <div className={'navbar-main'}>
+        <div className={'navbar-sections-wrapper'}>
+            <div className={'navbar-sections-container'}>
+            <img className={'home-icon'} src={HomeIcon} width={'30px'} height={'30px'}/>
+            <div className={'navbar-show-recent-news'} onClick={toggleVerticalRecentNews}>
                 <img src={Recent} width={'30px'} height={'30px'}/>
             </div>
             <NavBarSection
@@ -156,12 +160,14 @@ function NavBar() {
                 selfDropDownState={useState(false)}
                 dropDownContent={<div><p>Integer scelerisque, mauris at pharetra fermentum, sem dolor commodo libero, lacinia condimentum metus urna id ante. Nullam metus odio, cursus sit amet bibendum eget, consequat nec elit. Nullam ut interdum dolor. Nulla at imperdiet tortor. Quisque laoreet ante justo, ut sollicitudin urna aliquam sed. Mauris sed nunc mollis, scelerisque est quis, congue turpis. Sed pretium cursus orci. Curabitur rutrum elit est, in congue magna euismod sed. Sed vitae pretium libero. Aliquam vehicula egestas felis vehicula bibendum. Sed in fringilla odio. Duis hendrerit varius magna et maximus. Etiam quis tortor a lorem commodo commodo. Duis gravida pretium vestibulum. </p></div>}
             />
-            <img src={SearchIcon} width={'30px'} height={'30px'}/>
+            <img className={'navbar-search'} src={SearchIcon} width={'30px'} height={'30px'}/>
+        </div>
         </div>
         <NavBarDropDown
             state={dropDownState}
             content={dropDownContent}
         />
+        <RecentNews vertical={verticalRecentNews} />
     </div>
 }
 

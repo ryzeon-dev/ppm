@@ -1,14 +1,16 @@
 import './App.css';
 import Header from './components/Header';
 import NavBar from "./components/NavBar";
-import RecentNews from "./components/RecentNews";
+import BodyNews from "./components/BodyNews";
+import Footer from "./components/Footer";
 
 function App() {
     return (
         <div className="App">
             <Header />
             <NavBar />
-            <RecentNews />
+            <BodyNews />
+            <Footer />
         </div>
     );
 }

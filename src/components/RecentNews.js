@@ -4,9 +4,9 @@ function RecentNewsSection(props) {
     const styles = {
         main: {
             padding: '20px 30px 20px 30px',
-            width: '10%',
+            width: props.direction === 'v' ? '100%':'10%',
             display: 'flex',
-            flexDirection: props.direction === 'v' ? 'column' : 'row',
+            flexDirection: props.direction === 'v' ? 'row' : 'column',
             justifyContent: 'start',
             //alignItems: 'center',
         },
@@ -17,7 +17,7 @@ function RecentNewsSection(props) {
             textAlign: 'left'
         },
         text: {
-            color: '#FFFFFF',
+            color: props.direction === 'v' ? '#000000' :'#FFFFFF',
             fontSize: '15px',
             margin: '0',
             padding: '0',
@@ -39,7 +39,7 @@ function VL() {
     }}/>
 }
 
-function RecentNews() {
+function RecentNews(props) {
     const styles = {
         main : {
             backgroundColor: '#036487',
@@ -49,31 +49,42 @@ function RecentNews() {
             padding: '0 70px 0 70px'
         }
     }
-    return <div className={'recent-news-main'}>
+
+
+    function verticalCheck() {
+        if (props.vertical ) {
+            return true
+        }
+        return false
+    }
+
+    return <div className={'wrapper'}>
+        <div id={'recent-news-container'} className={'recent-news-main' + (props.vertical ? '-vertical' : '')}>
         <RecentNewsSection
             text={'Lorem ipsum dolor sit amet, consectetur'}
-            direction={'v'}
+            direction={verticalCheck() ? 'v' : 'h'}
         />
         <VL />
         <RecentNewsSection
             text={'Fusce at nulla tortor'}
-            direction={'v'}
+            direction={verticalCheck() ? 'v' : 'h'}
         />
         <VL />
         <RecentNewsSection
             text={'Praesent ac feugiat metus'}
-            direction={'v'}
+            direction={verticalCheck() ? 'v' : 'h'}
         />
         <VL />
         <RecentNewsSection
             text={'Proin accumsan vitae arcu eget euismod'}
-            direction={'v'}
+            direction={verticalCheck() ? 'v' : 'h'}
         />
         <VL />
         <RecentNewsSection
             text={'Phasellus nunc tellus, facilisis a gravida id'}
-            direction={'v'}
+            direction={verticalCheck() ? 'v' : 'h'}
         />
+    </div>
     </div>
 }
 
