@@ -1,33 +1,25 @@
 import './RecentNews.css';
 
 function RecentNewsSection(props) {
+
+
     const styles = {
-        main: {
-            padding: '20px 30px 20px 30px',
-            width: props.direction === 'v' ? '100%':'10%',
-            display: 'flex',
-            flexDirection: props.direction === 'v' ? 'row' : 'column',
-            justifyContent: 'start',
-            //alignItems: 'center',
-        },
         time: {
             color: '#79c4df',
             margin: '0',
             padding: '0',
             textAlign: 'left'
         },
-        text: {
-            color: props.direction === 'v' ? '#000000' :'#FFFFFF',
-            fontSize: '15px',
-            margin: '0',
-            padding: '0',
-            textAlign: 'left'
-        }
+
     };
 
-    return <div style={styles.main}>
-        <h5 style={styles.time}>HH:MM</h5>
-        <p style={styles.text}><strong>{props.text}</strong></p>
+    return <div className={'recent-news-section-main'} style={styles.main}>
+        <div className={'recent-news-section-text-container'}>
+            <h5 style={styles.time}>HH:MM</h5>
+            <p className={'recent-news-text'}><strong>{props.text}</strong></p>
+        </div>
+
+        <img src={'https://placehold.co/110x73'} className={'recent-news-image'}/>
     </div>
 }
 
@@ -60,31 +52,31 @@ function RecentNews(props) {
 
     return <div className={'wrapper'}>
         <div id={'recent-news-container'} className={'recent-news-main' + (props.vertical ? '-vertical' : '')}>
-        <RecentNewsSection
-            text={'Lorem ipsum dolor sit amet, consectetur'}
-            direction={verticalCheck() ? 'v' : 'h'}
-        />
-        <VL />
-        <RecentNewsSection
-            text={'Fusce at nulla tortor'}
-            direction={verticalCheck() ? 'v' : 'h'}
-        />
-        <VL />
-        <RecentNewsSection
-            text={'Praesent ac feugiat metus'}
-            direction={verticalCheck() ? 'v' : 'h'}
-        />
-        <VL />
-        <RecentNewsSection
-            text={'Proin accumsan vitae arcu eget euismod'}
-            direction={verticalCheck() ? 'v' : 'h'}
-        />
-        <VL />
-        <RecentNewsSection
-            text={'Phasellus nunc tellus, facilisis a gravida id'}
-            direction={verticalCheck() ? 'v' : 'h'}
-        />
-    </div>
+            <RecentNewsSection
+                text={'Lorem ipsum dolor sit amet, consectetur'}
+                direction={verticalCheck() ? 'v' : 'h'}
+            />
+            <VL />
+            <RecentNewsSection
+                text={'Fusce at nulla tortor'}
+                direction={verticalCheck() ? 'v' : 'h'}
+            />
+            <VL />
+            <RecentNewsSection
+                text={'Praesent ac feugiat metus'}
+                direction={verticalCheck() ? 'v' : 'h'}
+            />
+            <VL />
+            <RecentNewsSection
+                text={'Proin accumsan vitae arcu eget euismod'}
+                direction={verticalCheck() ? 'v' : 'h'}
+            />
+            <VL />
+            <RecentNewsSection
+                text={'Phasellus nunc tellus, facilisis a gravida id'}
+                direction={verticalCheck() ? 'v' : 'h'}
+            />
+        </div>
     </div>
 }
 

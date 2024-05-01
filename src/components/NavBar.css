@@ -3,7 +3,7 @@
 }
 
 .navbar-section-title {
-
+    user-select: none;
 }
 
 .navbar-sections-wrapper {
@@ -19,7 +19,10 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 10px 0 0 0;
-    width: 1152px;
+    max-width: 1152px;
+    width: 100%;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
 .navbar-section {
@@ -45,19 +48,27 @@
 
 }
 
+.navbar-drop-down {
+    margin-top: 0;
+}
+
+
+
 @media screen and (max-width: 1024px) {
     .navbar-main {
         border-top: none;
-        /*border-bottom: solid #2B2B2B 1px;*/
     }
     .navbar-show-recent-news {
         position: relative;
-        display: block;
-        /*border-left: solid #2B2B2B 1px;
-        border-right: solid #2B2B2B 1px;*/
-        padding: 0 10px 0 10px;
+        display: flex;
+        border-right: solid #2B2B2B 1px;
+        padding: 5px 10px 5px 10px;
         border-top: solid #2B2B2B 1px;
         border-bottom: solid #2B2B2B 1px;
+        height: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
     .home-icon {
@@ -65,13 +76,19 @@
         border-bottom: solid #2B2B2B 1px;
         border-left: solid #2B2B2B 1px;
         border-right: solid #2B2B2B 1px;
-        padding: 2px 5px 2px 5px;
+        padding: 5px 5px 5px 5px;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
     .navbar-sections-container {
         justify-content: start;
         margin-bottom: 0;
         padding-bottom: 0;
+        border-bottom: solid 1px #000000;
     }
 
     .navbar-section {
@@ -85,5 +102,14 @@
         border-bottom: solid #2B2B2B 1px;
         border-right: solid #2B2B2B 1px;
         padding: 5px 5px 5px 0;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-drop-down {
+        margin-top: 0;
     }
 }

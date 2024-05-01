@@ -16,7 +16,6 @@ function NavBarSection(props) {
 
     const styles = {
         main : {
-
             backgroundColor: props.dropDownState === props.title ? '#f5f6f8' : '#FFFFFF'
         },
         image : {
@@ -58,12 +57,12 @@ function NavBarDropDown(props) {
             backgroundColor : '#f5f6f8',
             display: props.state ? 'flex' : 'none',
             padding: '10px',
-            //marginTop: '15px',
-            fontSize: '18px'
+            fontSize: '18px',
+            userSelect: 'none'
         }
     }
 
-    return <div style={styles.main}>
+    return <div className={'navbar-drop-down'} style={styles.main}>
         {props.content}
     </div>
 }
@@ -73,22 +72,6 @@ function NavBar() {
     const [dropDownContent, setDropDownContent] = useState(<div></div>);
     const [verticalRecentNews, setVerticalRecentNews] = useState(false);
 
-    const styles = {
-        sections : {
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            //padding: '7px'
-        },
-        homeIcon : {
-            //borderTop: 'solid #026b9c 5px'
-        },
-        recentIcon : {
-
-        }
-    };
-
     function toggleVerticalRecentNews() {
         setVerticalRecentNews(!verticalRecentNews);
     }
@@ -96,7 +79,9 @@ function NavBar() {
     return <div className={'navbar-main'}>
         <div className={'navbar-sections-wrapper'}>
             <div className={'navbar-sections-container'}>
-            <img className={'home-icon'} src={HomeIcon} width={'30px'} height={'30px'}/>
+            <span className={'home-icon'}>
+                <img src={HomeIcon} width={'30px'} height={'30px'}/>
+            </span>
             <div className={'navbar-show-recent-news'} onClick={toggleVerticalRecentNews}>
                 <img src={Recent} width={'30px'} height={'30px'}/>
             </div>
@@ -160,7 +145,9 @@ function NavBar() {
                 selfDropDownState={useState(false)}
                 dropDownContent={<div><p>Integer scelerisque, mauris at pharetra fermentum, sem dolor commodo libero, lacinia condimentum metus urna id ante. Nullam metus odio, cursus sit amet bibendum eget, consequat nec elit. Nullam ut interdum dolor. Nulla at imperdiet tortor. Quisque laoreet ante justo, ut sollicitudin urna aliquam sed. Mauris sed nunc mollis, scelerisque est quis, congue turpis. Sed pretium cursus orci. Curabitur rutrum elit est, in congue magna euismod sed. Sed vitae pretium libero. Aliquam vehicula egestas felis vehicula bibendum. Sed in fringilla odio. Duis hendrerit varius magna et maximus. Etiam quis tortor a lorem commodo commodo. Duis gravida pretium vestibulum. </p></div>}
             />
-            <img className={'navbar-search'} src={SearchIcon} width={'30px'} height={'30px'}/>
+            <span className={'navbar-search'}>
+                <img  src={SearchIcon} width={'30px'} height={'30px'}/>
+            </span>
         </div>
         </div>
         <NavBarDropDown

@@ -16,15 +16,27 @@ function YellowLogo() {
 }
 
 function Article(props) {
+    const styles = {
+        textContent : {
+            fontSize: '24px'
+        },
+        main : {
+            gridColumn: 'span ' + props.span
+        }
+    };
+
     if (props.titlePosition === 'over')  {
-        return <div>
-            <h2><YellowLogo/>{props.title}</h2>
+        return <div style={styles.main}>
+            <h2>
+                <YellowLogo/>{props.title}
+            </h2>
             <div>
                 <img src={'https://placehold.co/' + (props.placeholderSize)}/>
             </div>
+            <span style={styles.textContent}>{props.content}</span>
         </div>
     } else {
-        return <div>
+        return <div style={styles.main}>
             <div>
                 <img src={'https://placehold.co/' + props.placeholderSize} alt=""/>
             </div>
@@ -32,9 +44,15 @@ function Article(props) {
                 <YellowLogo/>
                 {props.title}
             </h4>
+            <span style={styles.textContent}>{props.content}</span>
         </div>
     }
+}
 
+function SmallArticle(props) {
+    return <div>
+        <YellowLogo />
+    </div>
 }
 
 function BodyNews(props) {
@@ -47,8 +65,9 @@ function BodyNews(props) {
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-            height: '100%',
-            padding: '20px'
+            //height: '100%',
+            padding: '20px',
+            backgroundColor: '#f5f6f8'
         }
     }
 
@@ -57,18 +76,27 @@ function BodyNews(props) {
             <Article
                 titlePosition={"over"}
                 title={'Lorem ipsum dolor sit amet, consectetur adipiscing elit'}
-                placeholderSize={'420x280'}
+                placeholderSize={'644x322'}
+                content={'random content'}
+                span={'3'}
+            />
 
-            />
-            <Article
-                titlePosition={"under"}
-                title={"Sed non nibh id neque finibus placerat"}
-                placeholderSize={'200x130'}
-            />
             <Article
                 titlePosition={"over"}
                 title={'Fusce scelerisque non nibh sit amet ultricies'}
                 placeholderSize={'300x200'}
+                content={'random content asfj+akljdsjfh a+lsdkfj a+lsdkfj a+sdlkjf s.lkduC+KBAr+IKRUCB+OIwvubn'}
+                span={'1'}
+            />
+
+            <SmallArticle
+
+            />
+            <SmallArticle
+
+            />
+            <SmallArticle
+
             />
         </div>
     </div>
