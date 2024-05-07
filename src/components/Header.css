@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border-bottom: solid #026b9c 5px;
 }
 
 .header-main {
@@ -44,6 +45,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+    .header-wrapper {
+        border-bottom: none;
+    }
     .optional {
         display: none;
         position: absolute;

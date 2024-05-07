@@ -1,8 +1,6 @@
 import './RecentNews.css';
 
 function RecentNewsSection(props) {
-
-
     const styles = {
         time: {
             color: '#79c4df',
@@ -13,7 +11,7 @@ function RecentNewsSection(props) {
 
     };
 
-    return <div className={'recent-news-section-main'} style={styles.main}>
+    return <div id={props.id} className={'recent-news-section-main'} style={styles.main}>
         <div className={'recent-news-section-text-container'}>
             <h5 style={styles.time}>HH:MM</h5>
             <p className={'recent-news-text'}><strong>{props.text}</strong></p>

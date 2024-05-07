@@ -1,5 +1,7 @@
 .navbar-main {
-    border-top: solid #026b9c 5px;
+    position: sticky;
+    top: 0;
+    background-color: #FFFFFF;
 }
 
 .navbar-section-title {
@@ -56,7 +58,7 @@
 
 @media screen and (max-width: 1024px) {
     .navbar-main {
-        border-top: none;
+        border-top: 0px solid transparent;
     }
     .navbar-show-recent-news {
         position: relative;
@@ -89,6 +91,7 @@
         margin-bottom: 0;
         padding-bottom: 0;
         border-bottom: solid 1px #000000;
+        padding: 6px 0 0 0;
     }
 
     .navbar-section {

@@ -4,6 +4,7 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 10px;
+    width: 100%;
 }
 
 .recent-news-main {
@@ -48,6 +49,7 @@
     .wrapper {
         margin-top: 6px;
         background-color: #FFFFFF;
+        position: absolute;
     }
 
     .recent-news-main {
@@ -94,5 +96,9 @@
     .recent-news-image {
         display: block;
         margin-right: 20px;
+    }
+
+    #horizontal-only-news {
+        display: none;
     }
 }
