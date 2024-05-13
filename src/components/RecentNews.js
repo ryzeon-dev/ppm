@@ -36,13 +36,14 @@ function RecentNews(props) {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-around',
-            padding: '0 70px 0 70px'
+            padding: '0 70px ' + ((props.vertical) ? '70px' : '0') + ' 70px',
+
         }
     }
 
 
     function verticalCheck() {
-        if (props.vertical ) {
+        if (props.vertical) {
             return true
         }
         return false

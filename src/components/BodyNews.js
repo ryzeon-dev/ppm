@@ -43,14 +43,14 @@ function Article(props) {
         }
     };
 
-    return <div id={props.id}>
+    return <div id={props.id} className={"std-article"}>
         <h2>
             <YellowLogo/>{props.title}
         </h2>
-        <div className={'article-image-text-div'}>
-            <img src={'https://placehold.co/' + (props.placeholderSize)}/>
-            <p style={styles.textContent}>{props.content}</p>
-        </div>
+
+        <img className={'article-image'} src={'https://placehold.co/' + (props.placeholderSize)}/>
+        <p style={styles.textContent}>{props.content}</p>
+
 
     </div>
 
