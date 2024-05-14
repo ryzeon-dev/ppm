@@ -122,17 +122,22 @@ function NavBar() {
     return <div ref={ref} className={'navbar-main'} id={'navbar-main'}>
         <div className={'navbar-sections-wrapper'}>
             <div className={'navbar-sections-container'}>
-            <span className={'home-icon'} style={{
-                display: is_sticky() ? 'none' : 'flex'
-            }}>
-                <img src={HomeIcon} width={'30px'} height={'30px'}/>
-            </span>
+                <span className={'home-icon'} style={{
+                    display: is_sticky() ? 'none' : 'flex'
+                }}>
+                    <img src={HomeIcon} width={'30px'} height={'30px'}/>
+                </span>
+
                 <div style={{
-                    display: is_sticky() ? 'block' : 'none'
-                }}><strong>LOREM IPSUM</strong></div>
+                        display: is_sticky() ? 'block' : 'none'
+                }}>
+                    <strong>LOREM IPSUM</strong>
+                </div>
+
                 <div className={'navbar-show-recent-news'} onClick={toggleVerticalRecentNews}>
                     <img src={Recent} width={'30px'} height={'30px'}/>
                 </div>
+
                 <NavBarSection
                     title={"LOREM"}
                     dropDownState={dropDownState}
@@ -234,18 +239,20 @@ function NavBar() {
                         odio. Duis hendrerit varius magna et maximus. Etiam quis tortor a lorem commodo commodo. Duis
                         gravida pretium vestibulum. </p></div>}
                 />
-            <span className={'navbar-search'} style={{
-                display: is_sticky() ? 'none' : 'flex'
-            }}>
-                <img src={SearchIcon} width={'30px'} height={'30px'}/>
-            </span>
-            <div className={'login'} style={{
-                display: is_sticky() ? 'flex' : 'none'
-            }}>
-                <img src={LoginLogo} width={'20px'} height={'20px'}/>
-                <span className={'vl'}></span>
-                <span style={styles.loginButton}>Dolor sit</span>
-            </div>
+
+                <span className={'navbar-search'} style={{
+                    display: is_sticky() ? 'none' : 'flex'
+                }}>
+                    <img src={SearchIcon} width={'30px'} height={'30px'}/>
+                </span>
+
+                <div className={'navbar-login'} style={{
+                    display: is_sticky() ? 'flex' : 'none'
+                }}>
+                    <img src={LoginLogo} width={'20px'} height={'20px'}/>
+                    <span className={'vl'}></span>
+                    <span style={styles.loginButton}>Dolor sit</span>
+                </div>
             </div>
         </div>
         <NavBarDropDown

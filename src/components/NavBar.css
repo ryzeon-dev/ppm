@@ -62,7 +62,7 @@
     margin-left: 10px;
 }
 
-.login {
+.navbar-login {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -71,11 +71,13 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .login {
+    .navbar-login {
         display: none;
     }
+
     .navbar-main {
         border-top: 0px solid transparent;
+        position: relative;
     }
 
     .navbar-show-recent-news {
@@ -83,7 +85,7 @@
         display: flex;
         border-right: solid #2B2B2B 1px;
         padding: 5px 10px 5px 10px;
-        border-top: solid #2B2B2B 1px;
+        /*border-top: solid #2B2B2B 1px;*/
         border-bottom: solid #2B2B2B 1px;
         height: 100%;
         flex-direction: row;
@@ -92,7 +94,7 @@
     }
 
     .home-icon {
-        border-top: solid #2B2B2B 1px;
+        /*border-top: solid #2B2B2B 1px;*/
         border-bottom: solid #2B2B2B 1px;
         border-left: solid #2B2B2B 1px;
         border-right: solid #2B2B2B 1px;
@@ -108,19 +110,20 @@
         justify-content: start;
         margin-bottom: 0;
         border-bottom: solid 1px #000000;
+        border-right: solid 1px #000000;
+        border-top: solid 1px #000000;
         padding: 6px 0 0 0;
     }
 
     .navbar-section {
-        border-top: solid #2B2B2B 1px;
+        /*border-top: solid #2B2B2B 1px;*/
         border-bottom: solid #2B2B2B 1px;
         /*padding: 7.5px 20px 7.5px 20px;*/
     }
 
     .navbar-search {
-        border-top: solid #2B2B2B 1px;
+        /*border-top: solid #2B2B2B 1px;*/
         border-bottom: solid #2B2B2B 1px;
-        border-right: solid #2B2B2B 1px;
         padding: 5px 5px 5px 0;
         height: 100%;
         display: flex;
@@ -130,6 +133,6 @@
     }
 
     .navbar-drop-down {
-        margin-top: 0;
+        margin-top: -10px;
     }
 }

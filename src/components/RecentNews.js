@@ -41,9 +41,6 @@ function RecentNews(props) {
         }
     }
 
-
-
-
     function verticalCheck() {
         if (props.vertical) {
             return true
@@ -51,7 +48,7 @@ function RecentNews(props) {
         return false
     }
 
-    return <div className={'wrapper'} style={{display: props.hide ? 'none' : 'flex'}}>
+    return <div className={'wrapper'} style={{display: props.hide ? 'none' : 'flex', position: props.hide ? 'absolute' : 'relative'}}>
         <div id={'recent-news-container'} className={'recent-news-main' + (props.vertical ? '-vertical' : '')}>
             <RecentNewsSection
                 text={'Lorem ipsum dolor sit amet, consectetur'}

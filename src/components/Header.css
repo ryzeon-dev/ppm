@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     border-bottom: solid #026b9c 5px;
+    background-color: #FFFFFF;
 }
 
 .header-main {
@@ -47,7 +48,10 @@
 @media screen and (max-width: 1024px) {
     .header-wrapper {
         border-bottom: none;
+        position: sticky;
+        top: 0;
     }
+
     .optional {
         display: none;
         position: absolute;

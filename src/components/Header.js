@@ -23,9 +23,11 @@ function Header() {
                 <img src={NewspaperIcon} width={'50px'} height={'50px'}/>
                 <span style={styles.optionalText}>Lorem ipsum <br/> dolor sit</span>
             </div>
+
             <div className={'logo'}>
                 <h1>Lorem Ipsum</h1>
             </div>
+
             <div className={'login'}>
                 <img src={LoginLogo} width={'20px'} height={'20px'}/>
                 <span>Lorem ipsum</span>
