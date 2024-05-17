@@ -104,7 +104,18 @@ function NavBar() {
     }
 
     function toggleVerticalRecentNews() {
-        setVerticalRecentNews(!verticalRecentNews);
+        if (!verticalRecentNews) {
+            setVerticalRecentNews(true);
+            document.getElementById('navbar-main').style.position = 'fixed';
+            document.getElementById('navbar-main').style.marginTop = '80px';
+            document.getElementById('navbar-main').style.width = '100%';
+
+
+        } else {
+            setVerticalRecentNews(false);
+            document.getElementById('navbar-main').style.position = 'unset';
+            document.getElementById('navbar-main').style.marginTop = '0';
+        }
     }
 
     function is_sticky() {
@@ -119,7 +130,9 @@ function NavBar() {
 
     const  {ref, isSticky} = useSticky();
 
-    return <div ref={ref} className={'navbar-main'} id={'navbar-main'}>
+    return <div ref={ref} className={'navbar-main'} id={'navbar-main'} style={{
+        boxShadow : is_sticky() ? "0 5px 5px #AAAAAA" :"0 0 0"
+    }}>
         <div className={'navbar-sections-wrapper'}>
             <div className={'navbar-sections-container'}>
                 <span className={'home-icon'} style={{

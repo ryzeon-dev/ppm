@@ -1,6 +1,30 @@
 import './Header.css';
 import LoginLogo from './icons/login-icon.png';
 import NewspaperIcon from './icons/newspaper-icon.png';
+import {useEffect, useRef, useState} from "react";
+
+function useSticky() {
+    const ref = useRef(null);
+
+    const [isSticky, setIsSticky] = useState(false)
+
+    useEffect(() => {
+        if (!ref.current) {
+            return
+        }
+
+        const observer = new IntersectionObserver(
+            ([event]) => setIsSticky(event.intersectionRatio < 1),
+            {threshold: [1], rootMargin: '-1px 0px 0px 0px',}
+        )
+        observer.observe(ref.current)
+
+        return () => observer.disconnect()
+    }, [])
+
+    return {ref, isSticky}
+}
+
 
 function Header() {
     const styles = {
@@ -17,7 +41,21 @@ function Header() {
         }
     };
 
-    return <div className={'header-wrapper'}>
+    function is_sticky() {
+        try {
+            let position = document.getElementById('header-wrapper').getBoundingClientRect().top;
+            console.log(position);
+            return position <= 1;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    const  {ref, isSticky} = useSticky();
+
+    return <div ref={ref} className={'header-wrapper'} id={'header-wrapper'} style={{
+        boxShadow : is_sticky() ? "0 5px 5px #AAAAAA" :"0 0 0"
+    }}>
         <div className={'header-main'}>
             <div className={'optional'}>
                 <img src={NewspaperIcon} width={'50px'} height={'50px'}/>

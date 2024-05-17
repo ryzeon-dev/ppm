@@ -2,6 +2,7 @@
     position: sticky;
     top: 0;
     background-color: #FFFFFF;
+    border-top: solid 5px #026b9c;
 }
 
 .navbar-section-title {
@@ -52,7 +53,7 @@
 }
 
 .navbar-drop-down {
-    margin-top: 0;
+    margin-top: -10px;
 }
 
 .vl {
